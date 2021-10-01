@@ -1,18 +1,21 @@
-import { Container } from './styles';
+import {Container, BestGameToYou} from './styles'
+import storeGameLogo from '../../assets/storeGameLogo.svg'
+import { Link } from 'react-router-dom'
 
-const Home: React.FC = () => {
+export default function Home() {
   return (
     <Container>
-      <h1>📑 Template ReactJS + ⚡ Typescript + 🚧 Router dom</h1>
-    
-      <footer>
-        <span>My github: </span>
-        <a href="https://github.com/JoseMurilloc">
-          @JoseMurilloc
-        </a>
-      </footer>
-    </Container>
-  );
-};
+      <img src={storeGameLogo} alt="storeGameLogo" />
 
-export default Home;
+      <BestGameToYou>
+        <span> - Experiências incríveis</span>
+        <h1>Melhores jogos para você</h1>
+        <h3>
+          Conheça nossos jogos Conheça nossos jogos Conheça nossos jogos Conheça nossos jogos
+        </h3>
+
+        <Link to="/games">Conheça nossos jogos</Link>
+      </BestGameToYou>
+    </Container>
+  ) 
+}
