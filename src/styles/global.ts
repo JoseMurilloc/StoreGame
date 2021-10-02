@@ -1,11 +1,10 @@
 import {createGlobalStyle} from 'styled-components';
 
 export default createGlobalStyle`
-
-@media (max-width: 750px) {
-  html {
-    font-size: 70.5%; // 11.28px
-  }
+  @media (max-width: 750px) {
+    html {
+      font-size: 70.5%; // 11.28px
+    }
   }
   @media (min-width: 751px) {
     html {

@@ -19,23 +19,32 @@ export const Container = styled.div`
   }
 
   > div.content {
-    padding: 0 56px;
-    margin-top: 24px;
+    padding: 0 3.5rem;
+    margin-top: 1.5rem;
   }
-
+ 
+  div.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
 
   h1.title {
     font-size: 1rem;
     line-height: 1.25rem;
     color: #FFFFFF;
-    margin-bottom: 22px;
+    margin-bottom: 1.375rem;
   }
 `;
 
 export const GamesGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;  
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   grid-gap: 0.93rem;
-`;
 
+  @media(max-width: 1250px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+`;

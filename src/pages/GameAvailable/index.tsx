@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { CardaGame } from '../../components/CardGame';
+import { Dropdown } from '../../components/Dropdown';
 import { Header } from '../../components/Header';
 import api from '../../services/api';
+import { formatPrice } from '../../utils/format';
 import { Container, GamesGrid } from './styles';
 
 type Game = {
@@ -10,17 +12,22 @@ type Game = {
   price: number;
   score: number;
   image: string; 
+  priceFormatted?: string;
 }
 
 const GameAvailable: React.FC = () => {
- 
+  const [selected, setSelected] = useState('');
   const [games, setGames] = useState<Game[]>([]);
   
   async function loadProducts() {
     try {
       const response = await api('/products')
 
-      const games = response.data.map((game: Game) => ({...game, image: `http://localhost:3000/static/${game.image}`}))
+      const games = response.data.map((game: Game) => ({
+        ...game, 
+        priceFormatted: formatPrice(game.price),
+        image: `http://localhost:3000/static/new/${game.image}`
+      }))
 
 
       setGames(games)
@@ -33,6 +40,10 @@ const GameAvailable: React.FC = () => {
     loadProducts()
   }, [])
 
+  useEffect(() => {
+    console.log(selected)
+  }, [selected])
+
   return (
     <Container>
       <Header />
@@ -41,7 +52,10 @@ const GameAvailable: React.FC = () => {
       </div>
 
       <div className="content">
-        <h1 className="title">Nossos jogos</h1>
+        <div className="header">
+          <h1 className="title">Nossos jogos</h1>
+          <Dropdown selected={selected} setSelected={setSelected} />
+        </div>
         <GamesGrid>
           {games.map(game => (
             <CardaGame product={game} key={game.id}  />
