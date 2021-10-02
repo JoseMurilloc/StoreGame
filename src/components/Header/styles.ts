@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import { Link, NavLinkProps } from "react-router-dom";
+import styled, { css } from "styled-components";
 
 export const Container = styled.header`
   display: flex;
@@ -12,9 +13,34 @@ export const Container = styled.header`
   div.content {
     padding: 0;
     margin: 0;
-    img + img {
-      margin-left: 1.75rem;
-    }
-    .bag {}
   }
+`;
+
+
+interface CartProps {
+  countGames: number;
+}
+
+export const Cart = styled(Link)<CartProps>`
+  margin-right: 1.75rem;
+  position: relative;
+  color: #fff;
+  font-size: 0.5831rem;
+
+  ${props => props.countGames > 0 && css`
+    &:after {
+      content: '${props.countGames}';
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      bottom: 2px;
+      right: 0;
+      width: 14px;
+      height: 14px;
+      background: #AD0C07;
+      border-radius: 7px;
+    }
+  `}
+
 `;
