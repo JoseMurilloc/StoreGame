@@ -7,17 +7,18 @@ interface CardGameProps {
     name: string;
     price: number;
     score: number;
-    image: string; 
+    image: string;
+    priceFormatted?: string;
   }
 }
 
 export function CardaGame({product}: CardGameProps) {
   return (
     <Container>
-      <img src={product.image} alt="image_game" /> 
+      <img className="image-game" src={product.image} alt="image_game" /> 
       <div className="content">
         <span className="name">{product.name}</span>
-        <span className="price">{product.price}</span>
+        <span className="price">{product.priceFormatted}</span>
       </div>
       <button>
         <img src={addShoppingCart} alt="icon_add_to_cart" />
