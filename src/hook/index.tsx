@@ -1,10 +1,13 @@
 import React from 'react';
 import { AuthProvider } from './auth';
+import { CartProvider } from './cart';
 
 const AppProvider: React.FC = ({ children }) => {
   return (
     <AuthProvider>
-      { children  }
+      <CartProvider>
+        { children  }
+      </CartProvider>
     </AuthProvider>
   );
 }
