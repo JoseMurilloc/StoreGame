@@ -1,6 +1,6 @@
 import { createContext, useCallback, useState } from "react";
 import { useContext } from "react";
-import api from '../services/api';
+import api from '../../services/api';
 import { User, AuthContextData, AuthState } from './types';
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
