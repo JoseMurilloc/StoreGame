@@ -5,10 +5,10 @@ type ContainerProps = {
 }
 
 export const Container = styled.div<ContainerProps>` 
-  width: 132px;
+  width: 8.875rem;
   color: #fff;
-  font-size: 12px;
-  padding: 0 5px;
+  font-size: 0.75rem;
+  padding: 0 0.3125rem;
   font-weight: bold;
   position: relative;  
 
@@ -18,23 +18,23 @@ export const Container = styled.div<ContainerProps>`
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 40px;
+    height: 2.5rem;
     background: #121212;
     border: none;
     ${props => props.isActive ? css`
-      border-radius: 10px 10px 0px 0px;   
+      border-radius: 0.625rem 0.625rem 0rem 0rem;   
     ` : css`
-      border-radius: 10px;
+      border-radius: 0.625rem;
     `}
     span {
-      margin-right: 10px;
+      margin-right: 0.625rem;
     }
 
   } 
 
   .wrapperOptions {
     position: absolute;    
-    width: 122px;
+    width: 8.25rem;
   }
 
   
@@ -49,7 +49,7 @@ export const Container = styled.div<ContainerProps>`
     justify-content: center;
     align-items: center;
     
-    height: 22px;
+    height: 1.375rem;
     width: 100%;
     background-color: #121212;
 
@@ -58,7 +58,7 @@ export const Container = styled.div<ContainerProps>`
     }
 
     &:last-child {
-      border-radius: 0px 0px 10px 10px;
+      border-radius: 0rem 0rem 0.625rem 0.625rem;
     }
   }
 `;

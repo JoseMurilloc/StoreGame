@@ -6,7 +6,7 @@ import api from '../../services/api';
 import { formatPrice } from '../../utils/format';
 import { Container, GamesGrid } from './styles';
 
-type Game = {
+export type Game = {
   id: number;
   name: string;
   price: number;
@@ -16,33 +16,32 @@ type Game = {
 }
 
 const GameAvailable: React.FC = () => {
-  const [selected, setSelected] = useState('');
   const [games, setGames] = useState<Game[]>([]);
   
   async function loadProducts() {
     try {
       const response = await api('/products')
 
-      const games = response.data.map((game: Game) => ({
+      const gamesFormatted = response.data.map((game: Game) => ({
         ...game, 
         priceFormatted: formatPrice(game.price),
         image: `http://localhost:3000/static/new/${game.image}`
       }))
 
 
-      setGames(games)
+      setGames(gamesFormatted)
     } catch(err) {
       console.error(err);
     }
   }
 
+
   useEffect(() => {
     loadProducts()
   }, [])
 
-  useEffect(() => {
-    console.log(selected)
-  }, [selected])
+  
+
 
   return (
     <Container>
@@ -54,7 +53,10 @@ const GameAvailable: React.FC = () => {
       <div className="content">
         <div className="header">
           <h1 className="title">Nossos jogos</h1>
-          <Dropdown selected={selected} setSelected={setSelected} />
+          <Dropdown 
+            games={games} 
+            setGames={setGames}
+          />
         </div>
         <GamesGrid>
           {games.map(game => (
