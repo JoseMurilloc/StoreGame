@@ -29,13 +29,10 @@ export function Dropdown({selected, setSelected}:DropdownProps) {
     <Container isActive={isActive}>
       <div className="dropdown" onClick={handleActiveOptions}>
         { selected.length > 0 
-          ? selected 
-          : (
-            <>
-              <span>Ordena por</span>
-              <img src={down} alt="down" /> 
-            </>
-          )}
+          ? <span>{selected}</span> 
+          : <span>Ordena por</span>
+        }
+          <img src={down} alt="down" /> 
       </div>
       <div className="wrapperOptions">
         {options.map(option => (
