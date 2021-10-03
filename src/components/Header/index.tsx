@@ -13,7 +13,7 @@ export function Header() {
         <img src={storeGameLogo} alt="store_logo" />
       </Link>
       <div className="content">
-        <Cart to="/cart" countGames={5}>
+        <Cart to="/cart" countGames={2}>
           <img className="bag" src={shoppingBag} alt="bag_icon" /> 
         </Cart>
         <img src={user} alt="user_icon" />
