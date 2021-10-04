@@ -41,10 +41,21 @@ export const GamesGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  grid-gap: 0.93rem;
+  grid-row-gap: 0.93rem;
+  grid-column-gap: 1.5rem;
 
-  @media(max-width: 1250px) {
+  @media(max-width: 1269px) {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
+    grid-row-gap: 0.7rem;
+    grid-column-gap: 1rem;
+  }
+
+  @media(max-width: 1134px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 0.8rem;
+    grid-column-gap: 0.1rem;
   }
 `;
+

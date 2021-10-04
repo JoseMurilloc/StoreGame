@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { CardaGame } from '../../components/CardGame';
+import { CardLoadingProduct } from '../../components/CardLoadingProduct';
 import { Dropdown } from '../../components/Dropdown';
 import { Header } from '../../components/Header';
 import api from '../../services/api';
@@ -17,7 +18,9 @@ export type Game = {
 
 const GameAvailable: React.FC = () => {
   const [games, setGames] = useState<Game[]>([]);
-  
+  const [loadProduct, setLoadProduct] = useState(true);
+  const lineLoad = [0,1,2,3,4,5,6,7,8]
+
   async function loadProducts() {
     try {
       const response = await api('/products')
@@ -32,6 +35,8 @@ const GameAvailable: React.FC = () => {
       setGames(gamesFormatted)
     } catch(err) {
       console.error(err);
+    } finally { 
+      setLoadProduct(false)
     }
   }
 
@@ -59,9 +64,15 @@ const GameAvailable: React.FC = () => {
           />
         </div>
         <GamesGrid>
-          {games.map(game => (
-            <CardaGame product={game} key={game.id}  />
-          ))}
+          {loadProduct ? (
+            lineLoad.map(item => (
+              <CardLoadingProduct key={item} />
+            ))
+          ) : (
+            games.map(game => (
+              <CardaGame product={game} key={game.id}  />
+            ))
+          )}
         </GamesGrid> 
       </div> 
 
