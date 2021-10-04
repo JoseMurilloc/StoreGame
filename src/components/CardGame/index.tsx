@@ -1,5 +1,6 @@
 import { Container } from "./styles";
 import addShoppingCart from '../../assets/icons/add_shopping_cart.svg'
+import { useCart } from "../../hook/cart";
 
 interface CardGameProps {
   product: {
@@ -13,6 +14,9 @@ interface CardGameProps {
 }
 
 export function CardaGame({product}: CardGameProps) {
+  
+  const { addProduct } = useCart()
+
   return (
     <Container>
       <img className="image-game" src={product.image} alt="image_game" /> 
@@ -20,7 +24,9 @@ export function CardaGame({product}: CardGameProps) {
         <span className="name">{product.name}</span>
         <span className="price">{product.priceFormatted}</span>
       </div>
-      <button>
+      <button
+        onClick={() => addProduct(product.id)}
+      >
         <img src={addShoppingCart} alt="icon_add_to_cart" />
         <span>Carrinho</span>
       </button>

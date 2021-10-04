@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { 
   Product, CartContextData, 
   CartProviderProps, UpdateProductAmount, 
@@ -13,11 +13,6 @@ const CartContext = createContext<CartContextData>({} as CartContextData);
 
 export function CartProvider({ children }: CartProviderProps): JSX.Element {
   const [cart, setCart] = useState<Product[]>([]);
- 
-  useEffect(() => {
-    console.log(cart)
-  }, [cart])
-
   
   const addProduct = async (productId: number) => {
     fetch(`http://localhost:3333/products/${productId}`)
