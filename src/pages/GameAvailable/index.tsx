@@ -28,7 +28,7 @@ const GameAvailable: React.FC = () => {
       const gamesFormatted = response.data.map((game: Game) => ({
         ...game, 
         priceFormatted: formatPrice(game.price),
-        image: `http://localhost:3000/static/new/${game.image}`
+        image: `http://localhost:3000/static/${game.image}`
       }))
 
 

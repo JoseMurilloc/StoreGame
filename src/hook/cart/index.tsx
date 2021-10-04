@@ -26,7 +26,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
           const newProductToCart = [
             ...cart, {
               ...data, 
-              image: `http://localhost:3000/static/new/${data.image}`, 
+              image: `http://localhost:3000/static/${data.image}`, 
               amount: 1,
               priceFormatted: formatPrice(data.price)
             }]
