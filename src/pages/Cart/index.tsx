@@ -116,7 +116,7 @@ export function Cart() {
                             {/* <ContentInfo> */}
                               <span className="name">{product.name}</span>
                               <span className="description">
-                                FIFA 18 é um jogo eletrónico de futebol desenvolvido e publicado pela EA Sports, que foi lançado mundialmente em 1 de Novembro de 2017. 
+                                {product.description} 
                               </span>
                               {/* </ContentInfo> */}
                               <button onClick={() => submitRemoveProductCart(product.id)}>Remover produto</button>

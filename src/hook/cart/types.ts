@@ -5,6 +5,7 @@ export interface Product {
   name: string;
   price: number;
   score: number;
+  description: string;
   image: string; 
   priceFormatted: string;
   amount: number;
