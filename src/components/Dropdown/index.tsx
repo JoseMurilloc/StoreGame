@@ -55,7 +55,6 @@ export function Dropdown({games, setGames}:DropdownProps) {
       if (type === 'biggerPrices') {
         gamesOrderPrices = gamesOrderPrices.reverse()
       }
-      console.log(gamesOrderPrices)
       setGames([...gamesOrderPrices])
   }, [games, setGames])
   
