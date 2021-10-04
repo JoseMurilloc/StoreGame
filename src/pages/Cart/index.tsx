@@ -105,7 +105,7 @@ export function Cart() {
                 </thead>
                 <tbody>
                   {cartFormatted.map(product => (
-                    <BodyCartGame>
+                    <BodyCartGame key={product.id}>
                       <th>
                         <div className="card">
                           <img 

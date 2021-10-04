@@ -47,7 +47,8 @@ export const BodyCartGame = styled.tr`
     &.card {
       display: flex; 
       margin-right: 6.75rem;
-      margin-bottom: 1.375rem; 
+      margin-bottom: 1.375rem;
+      text-align: left;
       
       img {
         width: 6rem;
@@ -76,8 +77,9 @@ export const BodyCartGame = styled.tr`
           text-align: left;
           margin-bottom: 0.25rem;
           width: 14.875rem;
-          height: 45%;
-          font-size: 0.625rem;
+          height: 47%;
+          font-size: 0.7rem;
+          font-weight: normal;
           color: #737373;
         }
 
@@ -122,6 +124,7 @@ export const BodyCartGame = styled.tr`
         height: 1.9375rem;
         background: #AD0C07;
         border-radius: 0.2188rem;
+
 
         &:disabled {
           opacity: 0.4;
