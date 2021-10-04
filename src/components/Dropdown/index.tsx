@@ -9,27 +9,34 @@ interface DropdownProps {
   setGames: Dispatch<React.SetStateAction<Game[]>>
 }
 
+type Option = {
+  label: string;
+  typeSelect: 'smallerPrices' | 'biggerPrices' | 'Alphabet' | 'bestSellers' | ''
+}
+
 export function Dropdown({games, setGames}:DropdownProps) {
   const [isActive, setIsActive] = useState(false);
-  const [selected, setSelected] = useState('Ordena por');
+  const [selected, setSelected] = useState<Option>(
+    {label:'Ordena por', typeSelect: ''}
+  );
+
+  const options: Option[] = [
+    {label: 'Mais popular', typeSelect: 'bestSellers'}, 
+    {label: 'Preço: baixo a alto', typeSelect: 'smallerPrices'}, 
+    {label: 'Preço: alto a baixo', typeSelect: 'biggerPrices'}, 
+    {label: 'Ordem alfabética', typeSelect: 'Alphabet'},
+  ]
 
   
   useEffect(() => {
-    if (selected === 'Ordem alfabética') {
-      handleOrderAlphabetical()
-    }
+    const {typeSelect} = selected
 
-    if (selected === 'Mais popular') {
-      handleOrderScore()
-    }
-
-    if (selected === 'Preço: baixo a alto') {
-      handleOrderGamesPrices('smallerPrices')
+    if (typeSelect === 'Alphabet') handleOrderAlphabetical()
+    if (typeSelect === 'bestSellers') handleOrderScore()
+    if (typeSelect === 'biggerPrices' || typeSelect === 'smallerPrices') {
+      handleOrderGamesPrices(typeSelect)
     } 
-    
-    if (selected  === 'Preço: alto a baixo') {
-      handleOrderGamesPrices('biggerPrices')
-    }
+
   }, [selected])
   
 
@@ -59,14 +66,7 @@ export function Dropdown({games, setGames}:DropdownProps) {
   }, [games, setGames])
   
 
-  const options = [
-    'Mais popular', 
-    'Preço: baixo a alto', 
-    'Preço: alto a baixo', 
-    'Ordem alfabética',
-  ]
-
-  function handleChooseOption(option: string) {
+  function handleChooseOption(option: Option) {
     setSelected(option)
     setIsActive(state => !state)
   }
@@ -74,7 +74,7 @@ export function Dropdown({games, setGames}:DropdownProps) {
   return (
     <Container isActive={isActive}>
       <div className="dropdown" onClick={() => setIsActive(state => !state)}>
-          <span>{selected}</span>
+          <span>{selected.label}</span>
           <img src={down} alt="down" /> 
       </div>
       <div className="wrapperOptions">
@@ -82,9 +82,9 @@ export function Dropdown({games, setGames}:DropdownProps) {
           <div 
             onClick={() => handleChooseOption(option)}
             className="dropdown-option"
-            key={option}
+            key={option.typeSelect}
           >
-            {option}
+            {option.label}
           </div>
         ))}
       </div>
