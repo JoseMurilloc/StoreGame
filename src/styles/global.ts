@@ -1,6 +1,23 @@
 import {createGlobalStyle} from 'styled-components';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
+
+  *::-webkit-scrollbar {
+    width: 9px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: #171717;
+    border-radius: 5px;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: #0b0b0b;
+    border-radius: 20px;
+    border: 2px solid #171717;
+  }
+
   @media (max-width: 750px) {
     html {
       font-size: 70.5%; // 11.28px
