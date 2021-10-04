@@ -8,6 +8,7 @@ import {
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { formatPrice } from '../../utils/format';
+import api from '../../services/api';
 
 const CartContext = createContext<CartContextData>({} as CartContextData);
 
@@ -15,23 +16,23 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
   const [cart, setCart] = useState<Product[]>([]);
   
   const addProduct = async (productId: number) => {
-    fetch(`http://localhost:3333/products/${productId}`)
-      .then(response => response.json())
-      .then(json => {
+    api(`/products/${productId}`)
+      .then(response => {
+        const { data } = response
 
-        const existingProduct = cart.find(product => product.id === json.id)
+        const existingProduct = cart.find(product => product.id === data.id)
 
         if (!existingProduct) {
           const newProductToCart = [
             ...cart, {
-              ...json, 
-              image: `http://localhost:3000/static/new/${json.image}`, 
+              ...data, 
+              image: `http://localhost:3000/static/new/${data.image}`, 
               amount: 1,
-              priceFormatted: formatPrice(json.price)
+              priceFormatted: formatPrice(data.price)
             }]
           setCart([...newProductToCart])
 
-          toast.success(`🎉 ${json.name} Adicionado com sucesso`)
+          toast.success(`🎉 ${data.name} Adicionado com sucesso`)
         } else {
           const productAddAmount = cart.map(product => {
             if (product.id === existingProduct.id) {
@@ -40,7 +41,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
             return product
           })
           setCart(productAddAmount)
-          toast.success(`🎉 ${json.name} Adicionado com sucesso`)
+          toast.success(`🤩 ${data.name} Adicionado novamente`)
         }
       })
       .catch(err => {
