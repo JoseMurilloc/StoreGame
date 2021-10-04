@@ -13,10 +13,28 @@ import { Link } from 'react-router-dom'
 import { formatPrice } from '../../utils/format'
 import { useMemo } from 'react'
 import { Product } from '../../hook/cart/types'
+import { confirmAlert } from 'react-confirm-alert'
 
 export function Cart() {
 
   const { cart, updateProductAmount, removeProduct } = useCart()
+
+  const submitRemoveProductCart = (productId: number) => {
+    confirmAlert({
+      title: 'Deseja remove-lo do carrinho?',
+      message: 'Confirmação de remoção de produto do carrinho',
+      buttons: [
+        {
+          label: 'Sim',
+          onClick: () => removeProduct(productId)
+        },
+        {
+          label: 'Não',
+          onClick: () => {}
+        }
+      ]
+    });
+  };
 
   const cartFormatted = cart.map(product => ({
     ...product,
@@ -101,7 +119,7 @@ export function Cart() {
                                 FIFA 18 é um jogo eletrónico de futebol desenvolvido e publicado pela EA Sports, que foi lançado mundialmente em 1 de Novembro de 2017. 
                               </span>
                               {/* </ContentInfo> */}
-                              <button onClick={() => removeProduct(product.id)}>Remover produto</button>
+                              <button onClick={() => submitRemoveProductCart(product.id)}>Remover produto</button>
                           </div>
                         </div>
                       </th>

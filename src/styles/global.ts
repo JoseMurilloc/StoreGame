@@ -1,5 +1,6 @@
 import {createGlobalStyle} from 'styled-components';
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 export default createGlobalStyle`
 
@@ -16,6 +17,28 @@ export default createGlobalStyle`
     background-color: #0b0b0b;
     border-radius: 20px;
     border: 2px solid #171717;
+  }
+
+
+  // 👋 CSS custom of lib [react-confirm-alert]
+  .react-confirm-alert-overlay {
+    background: rgba(0, 0, 0, 0.7);
+    .react-confirm-alert-body {
+      background: #171717;
+      color: #fff;
+  
+      h1 {
+        font-size: 25px;
+        margin-bottom: 5px;
+      }
+  
+      .react-confirm-alert-button-group{
+        button {
+          background: #AD0C07;
+          font-weight: bold;
+        }
+      }
+    }
   }
 
   @media (max-width: 750px) {
