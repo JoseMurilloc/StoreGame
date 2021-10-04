@@ -12,8 +12,8 @@ export const Container = styled.div`
 
   img.image-game {
     width: 100%;
-    height: 125px;
-    border-radius: 3px 3px 0px 0px; 
+    height: 7.8125rem;
+    border-radius: 0.1875rem 0.1875rem 0rem 0rem; 
   }
   
   div.content {
