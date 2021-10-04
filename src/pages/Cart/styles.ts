@@ -4,8 +4,6 @@ export const Container = styled.div`
   background: #0B0B0B;
   height: 100vh;
   width: 100vw;
-
-
 `;
 
 export const ContentCart = styled.div`
@@ -20,12 +18,17 @@ export const ContentCart = styled.div`
 
   .wrapper-content {
     display: flex;
+
+    .wrapperScroll {
+      width: auto;
+      height: 31rem;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
   }
 `;
 
 export const CartOfGames = styled.table`
-  thead {
-  }
 `;
 
 export const HeaderCartGame = styled.tr`
@@ -38,97 +41,107 @@ export const HeaderCartGame = styled.tr`
     color: #BABABA;
   }
 `;
+
 export const BodyCartGame = styled.tr`
-
-  div.card {
-    display: flex; 
-    margin-right: 6.75rem;
-    margin-bottom: 1.375rem; 
-    
-    img {
-      width: 5.9375rem;
-      height: 7.125rem;
+  div {
+    &.card {
+      display: flex; 
+      margin-right: 6.75rem;
+      margin-bottom: 1.375rem; 
       
+      img {
+        width: 6rem;
+        height: 7.9rem; 
+      }
+
+      div.infoProduct {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-around;
+        width: 100%;
+        margin-left: 0.5rem;
+
+
+        span.name {
+          margin-bottom: 0.5rem;
+          text-transform: uppercase;
+          font-weight: 500;
+          font-size: 1rem;
+          line-height: 1.1875rem;
+          color: #B7B7B7;
+        }
+        
+        span.description {
+          text-align: left;
+          margin-bottom: 0.25rem;
+          width: 14.875rem;
+          height: 45%;
+          font-size: 0.625rem;
+          color: #737373;
+        }
+
+        button {
+          width: 7rem;
+          height: 2.125rem;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: #111111;
+          border-radius: 0.5rem;
+          border: none;
+
+          font-size: 0.75rem;
+          line-height: 0.875rem;
+          color: #FFFFFF;
+        }
+        
+      }
     }
 
-    div.infoProduct {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-around;
-    width: 100%;
-    margin-left: 0.5rem;
+    &.amount {
+      margin-right: 6.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-    span.name {
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-      font-weight: 500;
-      font-size: 1rem;
-      line-height: 1.1875rem;
-      color: #B7B7B7;
+      color: #FFF;
+
+      width: 11.9375rem;
+      height: 3rem;
+
+      button.button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border: none;
+
+        width: 2.375rem;
+        height: 1.9375rem;
+        background: #AD0C07;
+        border-radius: 0.2188rem;
+
+        &:disabled {
+          opacity: 0.4;
+          cursor: unset;
+        }
+      }
     }
-      
-    span.description {
+
+    &.price {
+      width: 5.4375rem;
       text-align: left;
-      margin-bottom: 0.25rem;
-      width: 14.875rem;
-      font-size: 0.625rem;
-      color: #737373;
+      span {
+        font-size: 1rem;
+        line-height: 1.1875rem;
+        color: #BABABA;
+      } 
     }
-
-    button {
-      width: 7rem;
-      height: 2.125rem;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #111111;
-      border-radius: 0.5rem;
-      border: none;
-
-      font-size: 0.75rem;
-      line-height: 0.875rem;
-      color: #FFFFFF;
-    }
-    }
-  } 
-
-  div.amount {
-    margin-right: 6.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    color: #FFF;
-
-    width: 11.9375rem;
-    height: 3rem;
-
-    button.button {
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      border: none;
-
-      width: 2.375rem;
-      height: 1.9375rem;
-      background: #AD0C07;
-      border-radius: 0.2188rem;
-    }
-
-  }
-
-  div.price {
-   span {
-    font-size: 1rem;
-    line-height: 1.1875rem;
-    color: #BABABA;
-   } 
   }
 `;
+
 
 export const ResumeRequest = styled.div`
   border-left: 0.0625rem solid rgba(186, 186, 186, 0.2);
@@ -152,6 +165,15 @@ export const ResumeRequest = styled.div`
     line-height: 1.1875rem;
     color: #696969;
   }
+
+  span.value-request + span.value-request {
+    margin-top: 0.25rem;
+  }
+
+  span.shippingFree {
+    color: #23CA7A;
+  }
+
   span.total {
     font-weight: bold;
     font-size: 1rem;
@@ -160,6 +182,7 @@ export const ResumeRequest = styled.div`
     margin-top: 1rem;
     margin-bottom: 0.9375rem;
   }
+
   button.finally-buy {
     width: 11.375rem;
     height: 2.5rem;
@@ -175,3 +198,18 @@ export const ResumeRequest = styled.div`
     color: #FFFFFF;
   }
 `; 
+
+export const NotExistProductsInCart = styled.div`
+  width: 53.5625rem;
+  height: 9.3125rem;
+
+  h2 {
+    color: #999;
+    margin-bottom: 0.75rem;  
+  }
+
+  a {
+    color: #AD0C07;
+    text-decoration: underline;
+  }
+`;
