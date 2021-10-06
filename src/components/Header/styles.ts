@@ -7,7 +7,7 @@ export const Container = styled.header`
   align-items: center;
 
   width: 100vw;
-  background: #171717;
+  background: ${({theme}) => theme.colors.secondary};
   padding: 1.375rem 3.5rem;
 
   div.content {
@@ -24,7 +24,7 @@ interface CartProps {
 export const Cart = styled(Link)<CartProps>`
   margin-right: 1.75rem;
   position: relative;
-  color: #fff;
+  color: ${({theme}) => theme.colors.title};
   font-size: 0.5831rem;
 
   ${props => props.countGames > 0 && css`
@@ -38,7 +38,7 @@ export const Cart = styled(Link)<CartProps>`
       right: 0;
       width: 14px;
       height: 14px;
-      background: #AD0C07;
+      background: ${props => props.theme.colors.primary};
       border-radius: 7px;
     }
   `}

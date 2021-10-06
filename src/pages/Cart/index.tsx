@@ -113,12 +113,10 @@ export function Cart() {
                             alt={product.name} 
                           />
                           <div className="infoProduct">
-                            {/* <ContentInfo> */}
                               <span className="name">{product.name}</span>
                               <span className="description">
                                 {product.description} 
                               </span>
-                              {/* </ContentInfo> */}
                               <button onClick={() => submitRemoveProductCart(product.id)}>Remover produto</button>
                           </div>
                         </div>

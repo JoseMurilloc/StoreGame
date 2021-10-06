@@ -1,3 +1,4 @@
+import { shade } from "polished";
 import styled, { keyframes } from "styled-components";
 
 const shine = keyframes`
@@ -13,7 +14,7 @@ export const Container = styled.div`
   justify-content: space-between;
 
   width: 10.3125rem;
-  background: #262626;
+  background: ${({theme}) => shade(0.5, theme.colors.secondary)};
   border-radius: 0.1875rem;
 
   div.image-game {
@@ -70,7 +71,7 @@ export const Container = styled.div`
       font-weight: bold;
       font-size: 0.625rem;
       line-height: 0.6875rem;
-      color: #FFFFFF;
+      color: ${props => props.theme.colors.title};
       width: 155px;
       height: 24px; 
     }

@@ -6,7 +6,7 @@ type ContainerProps = {
 
 export const Container = styled.div<ContainerProps>` 
   width: 8.875rem;
-  color: #fff;
+  color: ${props => props.theme.colors.title};
   font-size: 0.75rem;
   padding: 0 0.3125rem;
   font-weight: bold;
@@ -36,7 +36,6 @@ export const Container = styled.div<ContainerProps>`
     position: absolute;    
     width: 8.25rem;
   }
-
   
   .dropdown-option {
 

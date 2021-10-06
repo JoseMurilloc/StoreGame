@@ -37,6 +37,7 @@ export function Dropdown({games, setGames}:DropdownProps) {
       handleOrderGamesPrices(typeSelect)
     } 
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selected])
   
 

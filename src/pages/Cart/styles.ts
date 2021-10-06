@@ -1,7 +1,8 @@
+import { shade } from "polished";
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background: #0B0B0B;
+  background: ${props => props.theme.colors.background};
   height: 100vh;
   width: 100vw;
 `;
@@ -13,7 +14,7 @@ export const ContentCart = styled.div`
     font-weight: bold;
     font-size: 1.375rem;
     line-height: 1.75rem;
-    color: #FFFFFF;
+    color: ${props => props.theme.colors.title};
   }
 
   .wrapper-content {
@@ -38,7 +39,7 @@ export const HeaderCartGame = styled.tr`
     font-weight: 500;
     font-size: 1rem;
     line-height: 1.1875rem;
-    color: #BABABA;
+    color: ${({theme}) => theme.colors.subtext}
   }
 `;
 
@@ -70,7 +71,7 @@ export const BodyCartGame = styled.tr`
           font-weight: 500;
           font-size: 1rem;
           line-height: 1.1875rem;
-          color: #B7B7B7;
+          color: ${props => props.theme.colors.text};
         }
         
         span.description {
@@ -80,7 +81,7 @@ export const BodyCartGame = styled.tr`
           height: 47%;
           font-size: 0.7rem;
           font-weight: normal;
-          color: #737373;
+          color: ${props => props.theme.colors.text};
         }
 
         button {
@@ -96,7 +97,7 @@ export const BodyCartGame = styled.tr`
 
           font-size: 0.75rem;
           line-height: 0.875rem;
-          color: #FFFFFF;
+          color: ${props => props.theme.colors.title};
         }
         
       }
@@ -108,7 +109,7 @@ export const BodyCartGame = styled.tr`
       align-items: center;
       justify-content: space-between;
 
-      color: #FFF;
+      color: ${props => props.theme.colors.title};
 
       width: 11.9375rem;
       height: 3rem;
@@ -122,7 +123,7 @@ export const BodyCartGame = styled.tr`
 
         width: 2.375rem;
         height: 1.9375rem;
-        background: #AD0C07;
+        background: ${props => props.theme.colors.primary};
         border-radius: 0.2188rem;
 
 
@@ -139,7 +140,7 @@ export const BodyCartGame = styled.tr`
       span {
         font-size: 1rem;
         line-height: 1.1875rem;
-        color: #BABABA;
+        color: ${({theme}) => theme.colors.subtext}
       } 
     }
   }
@@ -147,7 +148,7 @@ export const BodyCartGame = styled.tr`
 
 
 export const ResumeRequest = styled.div`
-  border-left: 0.0625rem solid rgba(186, 186, 186, 0.2);
+  border-left: 0.0625rem solid ${({theme}) => shade(0.6,theme.colors.text)};
   height: 11.6875rem;
   margin-left: 5.9375rem;
   padding-left: 1.625rem;
@@ -159,14 +160,14 @@ export const ResumeRequest = styled.div`
     font-weight: bold;
     font-size: 1.375rem;
     line-height: 1.75rem;
-     color: #FFFFFF;
-     margin-bottom: 1.375rem;
+    color: ${props => props.theme.colors.title};
+    margin-bottom: 1.375rem;
   }
 
   span.value-request {
     font-size: 1rem;
     line-height: 1.1875rem;
-    color: #696969;
+    color: ${props => props.theme.colors.inactive};
   }
 
   span.value-request + span.value-request {
@@ -174,14 +175,14 @@ export const ResumeRequest = styled.div`
   }
 
   span.shippingFree {
-    color: #23CA7A;
+    color: ${props => props.theme.colors.price};
   }
 
   span.total {
     font-weight: bold;
     font-size: 1rem;
     line-height: 1.1875rem;
-    color: #BABABA;
+    color: ${({theme}) => theme.colors.subtext};
     margin-top: 1rem;
     margin-bottom: 0.9375rem;
   }
@@ -192,13 +193,18 @@ export const ResumeRequest = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #AD0C07;
+    background: ${props => props.theme.colors.primary};
     border-radius: 0.25rem;
     border: none;
     font-weight: bold;
     font-size: 1rem;
     line-height: 1.1875rem;
-    color: #FFFFFF;
+    color: ${props => props.theme.colors.title};
+    transition: background 0.2s ease-in-out;
+
+    &:hover {
+      background: ${({ theme }) => shade(0.2, theme.colors.primary)};
+    }
   }
 `; 
 
@@ -207,12 +213,12 @@ export const NotExistProductsInCart = styled.div`
   height: 9.3125rem;
 
   h2 {
-    color: #999;
+    color: ${props => props.theme.colors.text};
     margin-bottom: 0.75rem;  
   }
 
   a {
-    color: #AD0C07;
+    color: ${props => props.theme.colors.primary};
     text-decoration: underline;
   }
 `;

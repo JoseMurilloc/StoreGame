@@ -3,13 +3,13 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  background: #0B0B0B;
+  background: ${props => props.theme.colors.background};
  
   .warnPriceFree {
     width: 100vw;
-    background: #A62E2A;
+    background: ${props => props.theme.colors.attention};
     padding: 0.3125rem 0.3125rem;
-    color: #FFFFFF;
+    color: ${props => props.theme.colors.title};
     font-size: 0.75rem;
     line-height: 0.875rem;
 
@@ -32,7 +32,7 @@ export const Container = styled.div`
   h1.title {
     font-size: 1rem;
     line-height: 1.25rem;
-    color: #FFFFFF;
+    color: ${props => props.theme.colors.title};
     margin-bottom: 1.375rem;
   }
 `;

@@ -1,3 +1,4 @@
+import { shade } from "polished";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -7,7 +8,7 @@ export const Container = styled.div`
   justify-content: space-between;
 
   width: 10.3125rem;
-  background: #262626;
+  background: ${props => props.theme.colors.secondary};
   border-radius: 0.1875rem;
 
   img.image-game {
@@ -29,16 +30,16 @@ export const Container = styled.div`
     
     span.name {
       margin-bottom: 0.1875rem;
-      color: #FFFFFF;
+      color: ${props => props.theme.colors.title};;
     }
     span.price {
-      color: #23CA7A;
+      color: ${props => props.theme.colors.price};
       font-weight: bold;
     }
 
   }
   button {
-    background: #AD0C07;
+    background: ${props => props.theme.colors.primary};
     height: 1.6875rem;
 
     display: flex;
@@ -48,12 +49,17 @@ export const Container = styled.div`
     border-radius: 0rem 0rem 0.1875rem 0.1875rem;
     border: none;
     width: 100%;
+    transition: background 0.2s ease-in-out;
 
     span {
       font-weight: bold;
       font-size: 0.625rem;
       line-height: 0.6875rem;
-      color: #FFFFFF;
+      color: ${props => props.theme.colors.title};
+    }
+
+    &:hover {
+      background: ${({ theme }) => shade(0.2, theme.colors.primary)};
     }
   }
 `;
