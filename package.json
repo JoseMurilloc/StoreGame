@@ -26,6 +26,7 @@
   "scripts": {
     "start": "react-scripts start",
     "server": "json-server products.json -p 3333",
+    "server:delay": "json-server products.json -p 3333 -d 2500",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
