@@ -3,7 +3,7 @@ import AppProvider from './hook';
 import Routes from './routes';
 import { ToastContainer } from 'react-toastify';
 
-import GlobalStyles from './styles/global';
+import {GlobalStyles} from './styles/global';
 
 function App() {
   return (

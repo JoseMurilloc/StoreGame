@@ -2,7 +2,7 @@ import {createGlobalStyle} from 'styled-components';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
-export default createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
 
   *::-webkit-scrollbar {
     width: 9px;
