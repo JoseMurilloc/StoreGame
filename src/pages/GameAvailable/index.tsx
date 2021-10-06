@@ -52,7 +52,7 @@ const GameAvailable: React.FC = () => {
     <Container>
       <Header />
       <div className="warnPriceFree">
-        <span>Frete grátis acima de R$ 250</span>
+        <span>Frete grátis acima de R$ 250,00</span>
       </div>
 
       <div className="content">
