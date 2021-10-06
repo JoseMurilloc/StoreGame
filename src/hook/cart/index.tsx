@@ -16,7 +16,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
   const [cart, setCart] = useState<Product[]>([]);
   
   const addProduct = async (productId: number) => {
-    api(`/products/${productId}`)
+    await api(`/products/${productId}`)
       .then(response => {
         const { data } = response
 
