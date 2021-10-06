@@ -1,6 +1,7 @@
-import { Container } from "./styles";
+import { Container, Loader } from "./styles";
 import addShoppingCart from '../../assets/icons/add_shopping_cart.svg'
 import { useCart } from "../../hook/cart";
+import { useState } from "react";
 
 interface CardGameProps {
   product: {
@@ -15,7 +16,14 @@ interface CardGameProps {
 
 export function CardaGame({product}: CardGameProps) {
   
+  const [loadAddProduct, setLoadAddProduct] = useState(false);
   const { addProduct } = useCart()
+
+  async function handleAddProduct(productId: number) {
+    setLoadAddProduct(true)
+    await addProduct(productId)  
+    setLoadAddProduct(false)
+  }
 
   return (
     <Container>
@@ -25,9 +33,14 @@ export function CardaGame({product}: CardGameProps) {
         <span className="price">{product.priceFormatted}</span>
       </div>
       <button
-        onClick={() => addProduct(product.id)}
+        onClick={() => handleAddProduct(product.id)}
+        disabled={loadAddProduct}
       >
-        <img src={addShoppingCart} alt="icon_add_to_cart" />
+        {loadAddProduct ? (
+          <Loader />
+        ): (
+          <img className="addCart" src={addShoppingCart} alt="icon_add_to_cart" />
+        )}
         <span>Carrinho</span>
       </button>
     </Container>

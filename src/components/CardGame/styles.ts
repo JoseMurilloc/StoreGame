@@ -1,5 +1,5 @@
 import { shade } from "polished";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -58,8 +58,37 @@ export const Container = styled.div`
       color: ${props => props.theme.colors.title};
     }
 
+    img.addCart {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    &:disabled {
+      background: ${({ theme }) => shade(0.2, theme.colors.primary)};
+      cursor: unset;
+    }
+
     &:hover {
       background: ${({ theme }) => shade(0.2, theme.colors.primary)};
     }
   }
 `;
+
+
+const spinning = keyframes`
+  0%{ transform:translate(0deg);}
+  50%{tranform:rotate(90deg);}
+  100%{transform:rotate(180deg);}
+`
+
+export const Loader = styled.div`  
+  height:0.9375rem;
+  width:0.9375rem;
+  background-color:transparent;
+  border: 0.1875rem solid;
+  border-color: ${({theme}) => theme.colors.subtext } ${({theme}) => theme.colors.title };
+  border-radius:50%;
+  animation: .4s ${spinning} linear infinite;
+  margin-right: 0.34rem;
+`;
+
