@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { CardaGame } from '../../components/CardGame';
 import { CardLoadingProduct } from '../../components/CardLoadingProduct';
 import { Dropdown } from '../../components/Dropdown';
@@ -34,7 +35,7 @@ const GameAvailable: React.FC = () => {
 
       setGames(gamesFormatted)
     } catch(err) {
-      console.error(err);
+      toast.error('Problema ao carregar os produtos');
     } finally { 
       setLoadProduct(false)
     }
