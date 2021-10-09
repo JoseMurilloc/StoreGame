@@ -204,8 +204,8 @@ export const ResumeRequest = styled.div`
   }
 
   button.finally-buy {
-    width: 11.375rem;
-    height: 2.5rem;
+    min-width: 11.375rem;
+    min-height: 2.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
