@@ -16,37 +16,37 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
   const [cart, setCart] = useState<Product[]>([]);
   
   const addProduct = async (productId: number) => {
-    await api(`/products/${productId}`)
-      .then(response => {
-        const { data } = response
+    try {
+      const {data} = await api(`/products/${productId}`)
 
-        const existingProduct = cart.find(product => product.id === data.id)
 
-        if (!existingProduct) {
-          const newProductToCart = [
-            ...cart, {
-              ...data, 
-              image: `http://localhost:3000/static/${data.image}`, 
-              amount: 1,
-              priceFormatted: formatPrice(data.price)
-            }]
-          setCart([...newProductToCart])
+      const existingProduct = cart.find(product => product.id === data.id)
 
-          toast.success(`🎉 ${data.name} Adicionado com sucesso`)
-        } else {
-          const productAddAmount = cart.map(product => {
-            if (product.id === existingProduct.id) {
-              return ({...product, amount: product.amount+=1})
-            }
-            return product
-          })
-          setCart(productAddAmount)
-          toast.success(`🤩 ${data.name} Adicionado novamente`)
+      if (!existingProduct) {
+        const newProductToCart = {
+          ...data, 
+          image: `http://localhost:3000/static/${data.image}`, 
+          amount: 1,
+          priceFormatted: formatPrice(data.price)
         }
-      })
-      .catch(err => {
-        toast.error('Erro na adição do produto');    
-      })
+        setCart([...cart, newProductToCart])
+
+        toast.success(`🎉 ${data.name} Adicionado com sucesso`)
+
+      } else {
+        const productAddAmount = cart.map(product => {
+          if (product.id === existingProduct.id) {
+            return ({...product, amount: product.amount+=1})
+          }
+          return product
+        })
+        setCart(productAddAmount)
+        toast.success(`🤩 ${data.name} Adicionado novamente`)
+      }
+
+    } catch(err) {
+      toast.error('Erro na adição do produto');    
+    }
   };
 
 
