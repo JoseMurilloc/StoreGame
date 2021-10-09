@@ -117,7 +117,11 @@ export function Cart() {
                               <span className="description">
                                 {product.description} 
                               </span>
-                              <button onClick={() => submitRemoveProductCart(product.id)}>Remover produto</button>
+                              <button 
+                                onClick={() => submitRemoveProductCart(product.id)}
+                              >
+                                Remover produto
+                              </button>
                           </div>
                         </div>
                       </th>

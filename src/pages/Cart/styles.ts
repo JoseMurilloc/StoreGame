@@ -1,5 +1,5 @@
 import { shade } from "polished";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const Container = styled.div`
   background: ${props => props.theme.colors.background};
@@ -7,8 +7,20 @@ export const Container = styled.div`
   width: 100vw;
 `;
 
+const FadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
 export const ContentCart = styled.div`
   padding: 1.25rem 3.5rem 0rem 3.5rem;
+
+  animation: 0.7s ${FadeIn} ease-in;
+  
   h1.title {
     margin-bottom: 1.25rem;
     font-weight: bold;

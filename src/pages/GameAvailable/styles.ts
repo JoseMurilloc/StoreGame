@@ -1,10 +1,20 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const FadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 
 export const Container = styled.div`
   width: 100vw;
   height: 100vh;
   background: ${props => props.theme.colors.background};
- 
+
+  
   .warnPriceFree {
     width: 100vw;
     background: ${props => props.theme.colors.attention};
@@ -21,6 +31,7 @@ export const Container = styled.div`
   > div.content {
     padding: 0 3.5rem;
     margin-top: 1.5rem;
+    animation: 0.7s ${FadeIn} ease-in;
   }
  
   div.header {
