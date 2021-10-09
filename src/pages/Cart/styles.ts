@@ -137,7 +137,11 @@ export const BodyCartGame = styled.tr`
         height: 1.9375rem;
         background: ${props => props.theme.colors.primary};
         border-radius: 0.2188rem;
+        transition: background 0.2s ease-in-out;
 
+        &:hover:enabled {
+          background: ${({theme}) => shade(0.5, theme.colors.primary)};
+        }
 
         &:disabled {
           opacity: 0.4;
