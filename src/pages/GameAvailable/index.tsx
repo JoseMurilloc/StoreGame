@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { CardaGame } from '../../components/CardGame';
+import { CardGame } from '../../components/CardGame';
 import { CardLoadingProduct } from '../../components/CardLoadingProduct';
 import { Dropdown } from '../../components/Dropdown';
 import { Header } from '../../components/Header';
@@ -71,7 +71,7 @@ const GameAvailable: React.FC = () => {
             ))
           ) : (
             games.map(game => (
-              <CardaGame product={game} key={game.id}  />
+              <CardGame product={game} key={game.id}  />
             ))
           )}
         </GamesGrid> 

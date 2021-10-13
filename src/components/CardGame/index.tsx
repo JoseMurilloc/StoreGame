@@ -14,7 +14,7 @@ interface CardGameProps {
   }
 }
 
-export function CardaGame({product}: CardGameProps) {
+export function CardGame({product}: CardGameProps) {
   
   const [loadAddProduct, setLoadAddProduct] = useState(false);
   const { addProduct } = useCart()
