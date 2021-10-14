@@ -61,6 +61,13 @@ export const GlobalStyles = createGlobalStyle`
       font-size: 100%; // 16px
     }
   }
+
+  @media (min-width: 1800px) {
+    html {
+      font-size: 120%; // 16px
+    }
+  }
+  
   *, html {
     box-sizing: border-box;
   }
