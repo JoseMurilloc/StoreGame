@@ -14,6 +14,10 @@ export const Container = styled.div`
   height: 100vh;
   background: ${props => props.theme.colors.background};
 
+  @media (max-width: 411px) {
+    height: 100%;
+  }
+
   
   .warnPriceFree {
     width: 100vw;
@@ -67,6 +71,13 @@ export const GamesGrid = styled.div`
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-row-gap: 0.8rem;
     grid-column-gap: 0.1rem;
+  }
+
+  @media(max-width: 411px) {
+    grid-template-columns: 1fr 1fr;
+    padding: 0 0 0 10px; 
+    grid-row-gap: 0.8rem;
+    grid-column-gap: 0.5rem;
   }
 `;
 

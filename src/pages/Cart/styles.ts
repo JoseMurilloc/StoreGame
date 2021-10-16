@@ -20,6 +20,7 @@ export const ContentCart = styled.div`
   padding: 1.25rem 3.5rem 0rem 3.5rem;
 
   animation: 0.7s ${FadeIn} ease-in;
+
   
   h1.title {
     margin-bottom: 1.25rem;
@@ -32,11 +33,21 @@ export const ContentCart = styled.div`
   .wrapper-content {
     display: flex;
 
+    @media (max-width: 411px) {
+      flex-direction: column;
+      justify-content: space-between;
+      height: 80vh;
+    }
+
     .wrapperScroll {
       width: auto;
       height: 31rem;
       overflow-x: hidden;
       overflow-y: auto;
+
+      @media (max-width: 411px) {
+        height: 39rem;
+      }
     }
   }
 `;
@@ -76,7 +87,6 @@ export const BodyCartGame = styled.tr`
         width: 100%;
         margin-left: 0.5rem;
 
-
         span.name {
           margin-bottom: 0.5rem;
           text-transform: uppercase;
@@ -110,6 +120,11 @@ export const BodyCartGame = styled.tr`
           font-size: 0.75rem;
           line-height: 0.875rem;
           color: ${props => props.theme.colors.title};
+          transition: 0.9s all ease-out;
+
+          &:hover {
+            background: ${props => shade(0.2, props.theme.colors.primary)};
+          }
         }
         
       }
@@ -171,6 +186,14 @@ export const ResumeRequest = styled.div`
 
   display: flex;
   flex-direction: column;
+  
+  @media (max-width: 411px) {
+    border-top: 0.0625rem solid ${({theme}) => shade(0.6,theme.colors.text)};
+    border-left: none;
+    padding-top: 1rem;
+    margin: 0;    
+  }
+
   
   h2 {
     font-weight: bold;

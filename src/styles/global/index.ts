@@ -1,6 +1,15 @@
-import {createGlobalStyle} from 'styled-components';
+import {createGlobalStyle, keyframes} from 'styled-components';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+
+const upConfirmAlert = keyframes`
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+`
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -20,12 +29,15 @@ export const GlobalStyles = createGlobalStyle`
   }
 
 
+
   // 👋 CSS custom of lib [react-confirm-alert]
   .react-confirm-alert-overlay {
     background: rgba(0, 0, 0, 0.7);
+
     .react-confirm-alert-body {
       background: #171717;
       color: #fff;
+      animation: 0.5s ${upConfirmAlert} ease-in-out;
   
       h1 {
         font-size: 25px;
