@@ -1,5 +1,5 @@
 import { Container, Loader } from "./styles";
-import addShoppingCart from '../../assets/icons/add_shopping_cart.svg'
+import addShoppingCart from "../../assets/icons/add_shopping_cart.svg";
 import { useCart } from "../../hook/cart";
 import { useState } from "react";
 
@@ -11,23 +11,24 @@ interface CardGameProps {
     score: number;
     image: string;
     priceFormatted?: string;
-  }
+  };
 }
 
-export function CardGame({product}: CardGameProps) {
-  
+export function CardGame({ product }: CardGameProps) {
   const [loadAddProduct, setLoadAddProduct] = useState(false);
-  const { addProduct } = useCart()
+  const { addProduct } = useCart();
 
   async function handleAddProduct(productId: number) {
-    setLoadAddProduct(true)
-    await addProduct(productId)  
-    setLoadAddProduct(false)
+    setLoadAddProduct(true);
+    await addProduct(productId);
+    setLoadAddProduct(false);
   }
 
   return (
     <Container>
-      <img className="image-game" src={product.image} alt="image_game" /> 
+      <div className="container-image">
+        <img className="image-game" src={product.image} alt="image_game" />
+      </div>
       <div className="content">
         <span className="name">{product.name}</span>
         <span className="price">{product.priceFormatted}</span>
@@ -38,11 +39,15 @@ export function CardGame({product}: CardGameProps) {
       >
         {loadAddProduct ? (
           <Loader />
-        ): (
-          <img className="addCart" src={addShoppingCart} alt="icon_add_to_cart" />
+        ) : (
+          <img
+            className="addCart"
+            src={addShoppingCart}
+            alt="icon_add_to_cart"
+          />
         )}
         <span>Carrinho</span>
       </button>
     </Container>
-  )
+  );
 }
