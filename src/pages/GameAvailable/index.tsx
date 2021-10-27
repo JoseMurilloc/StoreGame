@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
-import { CardGame } from "../../components/CardGame";
-import { CardLoadingProduct } from "../../components/CardLoadingProduct";
-import { Dropdown } from "../../components/Dropdown";
-import { Header } from "../../components/Header";
-import api from "../../services/api";
-import { formatPrice } from "../../utils/format";
-import { Container, GamesGrid } from "./styles";
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import { CardGame } from '../../components/CardGame';
+import { CardLoadingProduct } from '../../components/CardLoadingProduct';
+import { Dropdown } from '../../components/Dropdown';
+import { Header } from '../../components/Header';
+import api from '../../services/api';
+import { formatPrice } from '../../utils/format';
+import { Container, GamesGrid } from './styles';
 
 export type Game = {
   id: number;

@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { useMemo } from 'react';
 import { confirmAlert } from 'react-confirm-alert';
@@ -23,8 +22,8 @@ export function Cart() {
 
   const submitRemoveProductCart = (productId: number) => {
     confirmAlert({
-      title: "Deseja remove-lo do carrinho?",
-      message: "Confirmação de remoção de produto do carrinho",
+      title: 'Deseja remove-lo do carrinho?',
+      message: 'Confirmação de remoção de produto do carrinho',
       buttons: [
         {
 
@@ -66,7 +65,6 @@ export function Cart() {
       (sumTotal, product) => sumTotal += (product.price * product.amount), 0,
     );
 
-
     return formatPrice(totalWithShipping + shipping);
   }, [cart, shipping]);
 
@@ -103,7 +101,7 @@ export function Cart() {
                 <tbody>
                   {cartFormatted.map((product) => (
                     <BodyCartGame key={product.id}>
-                      <th>
+                      <td>
                         <div className="card">
                           <div className="container-image">
                             <img src={product.image} alt={product.name} />
@@ -122,13 +120,13 @@ export function Cart() {
                             </button>
                           </div>
                         </div>
-                      </th>
-                      <th>
+                      </td>
+                      <td>
                         <div className="price">
                           <span>{product.priceFormatted}</span>
                         </div>
-                      </th>
-                      <th>
+                      </td>
+                      <td>
                         <div className="amount">
                           <button
                             type="button"
@@ -149,12 +147,12 @@ export function Cart() {
                             <img src={plus} alt="plus" />
                           </button>
                         </div>
-                      </th>
-                      <th>
+                      </td>
+                      <td>
                         <div className="pricePartial">
                           <span>{product.pricePartialFormatted}</span>
                         </div>
-                      </th>
+                      </td>
                     </BodyCartGame>
                   ))}
                 </tbody>
@@ -168,7 +166,6 @@ export function Cart() {
           )}
           <ResumeRequest>
             <h2>Resumo do pedido</h2>
-
 
             <span className="value-request">
               Subtotal:
@@ -190,7 +187,6 @@ export function Cart() {
               {' '}
               {total}
             </span>
-
 
             <button
               type="submit"

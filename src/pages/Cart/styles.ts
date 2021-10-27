@@ -32,7 +32,7 @@ export const ContentCart = styled.div`
   .wrapper-content {
     display: flex;
     justify-content: space-between;
-    padding-right: 9.6875rem;
+    padding-right: 5rem;
 
     @media (max-width: 411px) {
       flex-direction: column;
@@ -53,7 +53,6 @@ export const ContentCart = styled.div`
   }
 `;
 
-
 export const CartOfGames = styled.table`
   border-collapse: separate;
   border-spacing: 3.125rem 0;
@@ -67,16 +66,16 @@ export const HeaderCartGame = styled.tr`
     line-height: 1.1875rem;
     color: ${({ theme }) => theme.colors.subtext};
     padding-bottom: 0.625rem;
-    padding-right: 1.5625rem;
   }
 `;
 
 export const BodyCartGame = styled.tr`
+
+  margin-right: 1rem;
+
   div {
-    margin-right: 1.5625rem;
     &.card {
       display: flex;
-      margin-right: 6.75rem;
       margin-bottom: 1.375rem;
       text-align: left;
 

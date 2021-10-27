@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components';
 
 const FadeIn = keyframes`
   0% {
@@ -58,6 +58,12 @@ export const GamesGrid = styled.div`
   grid-row-gap: 0.93rem;
   grid-column-gap: 1.5rem;
 
+  @media(min-width: 1794px) {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-row-gap: 0.7rem;
+    grid-column-gap: 1rem;
+  }
 
   @media(max-width: 1269px) {
     grid-template-columns: repeat(6, 1fr);
@@ -72,23 +78,30 @@ export const GamesGrid = styled.div`
     grid-row-gap: 0.8rem;
     grid-column-gap: 0.1rem;
   }
-  @media(max-width: 750px) {
-    grid-template-columns: repeat(4, 1fr);
+
+  @media(max-width: 1074px) {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-row-gap: 0.8rem;
+    grid-column-gap: 0.1rem;
+  }
+
+  @media(max-width: 872px) {
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr) ;
     grid-row-gap: 0.8rem;
     grid-column-gap: 0.1rem;
   }
 
-  @media(max-width: 560px) {
-    grid-template-columns: repeat(3, 1fr);
+  @media(max-width: 784px) {
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(6, 1fr);
     grid-row-gap: 0.8rem;
     grid-column-gap: 0.1rem;
   }
 
-
-  @media(max-width: 434px) {
-    grid-template-columns: repeat(2, 19.5rem);   
+  @media(max-width: 600px) {
+    grid-template-columns: repeat(3, 1fr);   
     grid-row-gap: 0.8rem;
     grid-column-gap: 0;
   }
