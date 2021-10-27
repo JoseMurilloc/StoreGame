@@ -4,15 +4,12 @@ import GameAvailable from '../pages/GameAvailable';
 import Home from '../pages/Home';
 import Route from './Router';
 
-
-const Routes: React.FC = () => {
-  return (
-    <Switch>
-      <Route exact  path="/" component={Home} />
-      <Route path="/games" component={GameAvailable} />
-      <Route path="/cart" component={Cart} />
-    </Switch>
-  );
-}
+const Routes: React.FC = () => (
+  <Switch>
+    <Route exact path="/" component={Home} />
+    <Route path="/games" component={GameAvailable} />
+    <Route path="/cart" component={Cart} />
+  </Switch>
+);
 
 export default Routes;

@@ -1,5 +1,5 @@
-import { shade } from "polished";
-import styled, { keyframes } from "styled-components";
+import { shade } from 'polished';
+import styled, { keyframes } from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -8,7 +8,7 @@ export const Container = styled.div`
   justify-content: space-between;
 
   width: 10.3125rem;
-  background: ${props => props.theme.colors.secondary};
+  background: ${(props) => props.theme.colors.secondary};
   border-radius: 0.1875rem;
 
   img.image-game {
@@ -30,16 +30,16 @@ export const Container = styled.div`
     
     span.name {
       margin-bottom: 0.1875rem;
-      color: ${props => props.theme.colors.title};;
+      color: ${(props) => props.theme.colors.title};;
     }
     span.price {
-      color: ${props => props.theme.colors.price};
+      color: ${(props) => props.theme.colors.price};
       font-weight: bold;
     }
 
   }
   button {
-    background: ${props => props.theme.colors.primary};
+    background: ${(props) => props.theme.colors.primary};
     height: 1.6875rem;
 
     display: flex;
@@ -55,7 +55,7 @@ export const Container = styled.div`
       font-weight: bold;
       font-size: 0.625rem;
       line-height: 0.6875rem;
-      color: ${props => props.theme.colors.title};
+      color: ${(props) => props.theme.colors.title};
     }
 
     img.addCart {
@@ -74,21 +74,19 @@ export const Container = styled.div`
   }
 `;
 
-
 const spinning = keyframes`
   0%{ transform:translate(0deg);}
   50%{tranform:rotate(90deg);}
   100%{transform:rotate(180deg);}
-`
+`;
 
 export const Loader = styled.div`  
   height:0.9375rem;
   width:0.9375rem;
   background-color:transparent;
   border: 0.1875rem solid;
-  border-color: ${({theme}) => theme.colors.subtext } ${({theme}) => theme.colors.title };
+  border-color: ${({ theme }) => theme.colors.subtext} ${({ theme }) => theme.colors.title};
   border-radius:50%;
   animation: .4s ${spinning} linear infinite;
   margin-right: 0.34rem;
 `;
-
