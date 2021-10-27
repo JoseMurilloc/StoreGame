@@ -17,7 +17,7 @@ export const Container = styled.header`
 `;
 
 interface CartProps {
-  countGames: number;
+  countgames: number;
 }
 
 const notify = keyframes`
@@ -34,10 +34,10 @@ export const Cart = styled(Link) <CartProps>`
   color: ${({ theme }) => theme.colors.title};
   font-size: 0.5831rem;
 
-  ${(props) => props.countGames > 0 && css`
+  ${(props) => props.countgames > 0 && css`
     &:after {
       animation: ${notify} .9s ease-out infinite alternate;
-      content: '${props.countGames}';
+      content: '${props.countgames}';
       display: flex;
       justify-content: center;
       align-items: center;
