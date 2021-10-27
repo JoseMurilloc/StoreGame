@@ -1,94 +1,107 @@
+import {
+  useEffect, useState, Dispatch, useCallback,
+} from 'react';
 import { Container } from './styles';
-import down from '../../assets/icons/down.svg'
-import { useEffect, useState, Dispatch, useCallback } from 'react';
+import down from '../../assets/icons/down.svg';
 import { Game } from '../../pages/GameAvailable';
 
-
-interface DropdownProps { 
+interface DropdownProps {
   games: Array<Game>
   setGames: Dispatch<React.SetStateAction<Game[]>>
 }
 
+type TypesSelectOptions = 'smallerPrices' | 'biggerPrices' | 'Alphabet' | 'bestSellers' | 'AlphabetReverse' | null
+
 type Option = {
   label: string;
-  typeSelect: 'smallerPrices' | 'biggerPrices' | 'Alphabet' | 'bestSellers' | ''
+  typeSelect: TypesSelectOptions;
 }
 
-export function Dropdown({games, setGames}:DropdownProps) {
+export function Dropdown({ games, setGames }:DropdownProps) {
   const [isActive, setIsActive] = useState(false);
   const [selected, setSelected] = useState<Option>(
-    {label:'Ordena por', typeSelect: ''}
+    { label: 'Ordena por', typeSelect: null },
   );
 
   const options: Option[] = [
-    {label: 'Mais popular', typeSelect: 'bestSellers'}, 
-    {label: 'Preço: baixo a alto', typeSelect: 'smallerPrices'}, 
-    {label: 'Preço: alto a baixo', typeSelect: 'biggerPrices'}, 
-    {label: 'Ordem alfabética', typeSelect: 'Alphabet'},
-  ]
+    { label: 'Mais popular', typeSelect: 'bestSellers' },
+    { label: 'Preço: baixo a alto', typeSelect: 'smallerPrices' },
+    { label: 'Preço: alto a baixo', typeSelect: 'biggerPrices' },
+    { label: 'Ordenar A-Z', typeSelect: 'Alphabet' },
+    { label: 'Ordenar Z-A', typeSelect: 'AlphabetReverse' },
+  ];
 
-  
-  useEffect(() => {
-    const {typeSelect} = selected
+  const handleOrderAlphabetical = useCallback((typeOrder: string) => {
+    let orderAlphabetical = games.sort(
+      (a: Game, b: Game) => a.name.localeCompare(b.name),
+    );
 
-    if (typeSelect === 'Alphabet') handleOrderAlphabetical()
-    if (typeSelect === 'bestSellers') handleOrderScore()
-    if (typeSelect === 'biggerPrices' || typeSelect === 'smallerPrices') {
-      handleOrderGamesPrices(typeSelect)
-    } 
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selected])
-  
+    if (typeOrder === 'AlphabetReverse') {
+      orderAlphabetical = orderAlphabetical.reverse();
+    }
+    setGames([...orderAlphabetical]);
+  }, [games, setGames]);
 
   const handleOrderScore = useCallback(() => {
     const orderScore = games
       .sort((a: Game, b: Game) => a.score - b.score)
-      .reverse()
+      .reverse();
 
-    setGames([...orderScore])
-  }, [games, setGames]) 
-    
-  const handleOrderAlphabetical = useCallback(() => {
-    const orderAlphabetical = games.sort((a: Game, b: Game) => {
-      return a.name.localeCompare(b.name);
-    })    
-    setGames([...orderAlphabetical])
-  }, [games, setGames]) 
+    setGames([...orderScore]);
+  }, [games, setGames]);
 
   const handleOrderGamesPrices = useCallback(
     (type: 'biggerPrices' | 'smallerPrices') => {
-      let gamesOrderPrices = games.sort((a: Game, b: Game) => a.price - b.price)
-      
-      if (type === 'biggerPrices') {
-        gamesOrderPrices = gamesOrderPrices.reverse()
-      }
-      setGames([...gamesOrderPrices])
-  }, [games, setGames])
-  
+      let gamesOrderPrices = games.sort((a: Game, b: Game) => a.price - b.price);
 
-  function handleChooseOption(option: Option) {
-    setSelected(option)
-    setIsActive(state => !state)
-  }
-  
+      if (type === 'biggerPrices') {
+        gamesOrderPrices = gamesOrderPrices.reverse();
+      }
+      setGames([...gamesOrderPrices]);
+    }, [games, setGames],
+  );
+
+  const handleChooseOption = useCallback((option: Option) => {
+    setSelected(option);
+    setIsActive((state) => !state);
+  }, []);
+
+  useEffect(() => {
+    const { typeSelect } = selected;
+
+    if (typeSelect === 'Alphabet' || typeSelect === 'AlphabetReverse') {
+      handleOrderAlphabetical(typeSelect);
+    }
+    if (typeSelect === 'bestSellers') handleOrderScore();
+    if (typeSelect === 'biggerPrices' || typeSelect === 'smallerPrices') {
+      handleOrderGamesPrices(typeSelect);
+    }
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selected]);
+
   return (
     <Container isActive={isActive}>
-      <div className="dropdown" onClick={() => setIsActive(state => !state)}>
-          <span>{selected.label}</span>
-          <img src={down} alt="down" /> 
-      </div>
+      <button
+        type="button"
+        className="resetButton dropdown"
+        onClick={() => setIsActive((state) => !state)}
+      >
+        <span>{selected.label}</span>
+        <img src={down} alt="down" />
+      </button>
       <div className="wrapperOptions">
-        {options.map(option => (
-          <div 
+        {options.map((option) => (
+          <button
+            type="button"
             onClick={() => handleChooseOption(option)}
-            className="dropdown-option"
+            className="resetButton dropdown-option"
             key={option.typeSelect}
           >
             {option.label}
-          </div>
+          </button>
         ))}
       </div>
     </Container>
-  )
+  );
 }
