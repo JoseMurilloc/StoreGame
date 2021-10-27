@@ -1,7 +1,7 @@
 export interface User {
   id: string;
   name: string;
-  avatar_url: string;
+  avatarUrl: string;
   email: string;
 }
 
@@ -14,6 +14,11 @@ interface Credentials {
   email: string;
   password: string;
 }
+
+export const keyStorage = {
+  user: '@StoreGame:user',
+  token: '@StoreGame:token',
+};
 
 export interface AuthContextData {
   user: User;

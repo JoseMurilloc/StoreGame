@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 export interface Product {
   id: number;
@@ -6,7 +6,7 @@ export interface Product {
   price: number;
   score: number;
   description: string;
-  image: string; 
+  image: string;
   priceFormatted: string;
   amount: number;
 }
@@ -27,4 +27,4 @@ export interface CartContextData {
   updateProductAmount: ({ productId, amount }: UpdateProductAmount) => void;
 }
 
-export const keyStorage = '@StoreGames:cart'
+export const keyStorage = '@StoreGames:cart';

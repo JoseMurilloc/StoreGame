@@ -1,5 +1,5 @@
-import { shade } from "polished";
-import styled, { keyframes } from "styled-components";
+import { lighten, shade } from 'polished';
+import styled, { keyframes } from 'styled-components';
 
 export const Container = styled.div`
   background: ${(props) => props.theme.colors.background};
@@ -31,6 +31,8 @@ export const ContentCart = styled.div`
 
   .wrapper-content {
     display: flex;
+    justify-content: space-between;
+    padding-right: 9.6875rem;
 
     @media (max-width: 411px) {
       flex-direction: column;
@@ -51,20 +53,27 @@ export const ContentCart = styled.div`
   }
 `;
 
-export const CartOfGames = styled.table``;
+
+export const CartOfGames = styled.table`
+  border-collapse: separate;
+  border-spacing: 3.125rem 0;
+`;
 
 export const HeaderCartGame = styled.tr`
-  th {
+  td {
     text-align: left;
     font-weight: 500;
     font-size: 1rem;
     line-height: 1.1875rem;
     color: ${({ theme }) => theme.colors.subtext};
+    padding-bottom: 0.625rem;
+    padding-right: 1.5625rem;
   }
 `;
 
 export const BodyCartGame = styled.tr`
   div {
+    margin-right: 1.5625rem;
     &.card {
       display: flex;
       margin-right: 6.75rem;
@@ -80,6 +89,7 @@ export const BodyCartGame = styled.tr`
         object-fit: cover;
         width: 100%;
         height: 100%;
+
       }
 
       div.infoProduct {
@@ -133,14 +143,13 @@ export const BodyCartGame = styled.tr`
     }
 
     &.amount {
-      margin-right: 6.75rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-
+      width: 6.1875rem;
       color: ${(props) => props.theme.colors.title};
 
-      width: 11.9375rem;
+
       height: 3rem;
 
       button.button {
@@ -150,11 +159,17 @@ export const BodyCartGame = styled.tr`
 
         border: none;
 
-        width: 2.375rem;
-        height: 1.9375rem;
+
+        width: 1.5rem;
+        height: 1.5rem;
+
         background: ${(props) => props.theme.colors.primary};
         border-radius: 0.2188rem;
         transition: background 0.2s ease-in-out;
+
+        img {
+          width: 0.625rem;
+        }
 
         &:hover:enabled {
           background: ${({ theme }) => shade(0.5, theme.colors.primary)};
@@ -168,13 +183,25 @@ export const BodyCartGame = styled.tr`
     }
 
     &.price {
-      width: 5.4375rem;
+      width: 6.2rem;
       text-align: left;
+      
       span {
         font-size: 1rem;
         line-height: 1.1875rem;
-        color: ${({ theme }) => theme.colors.subtext};
-      }
+        color: ${({ theme }) => theme.colors.text}
+      } 
+    }
+
+    &.pricePartial {
+      width: 6.2rem;
+      text-align: left;
+      
+      span {
+        font-size: 1rem;
+        line-height: 1.1875rem;
+        color: ${({ theme }) => theme.colors.price}
+      } 
     }
   }
 `;
@@ -182,8 +209,8 @@ export const BodyCartGame = styled.tr`
 export const ResumeRequest = styled.div`
   border-left: 0.0625rem solid ${({ theme }) => shade(0.6, theme.colors.text)};
   height: 11.6875rem;
-  margin-left: 5.9375rem;
   padding-left: 1.625rem;
+  width: 18.125rem;
 
   display: flex;
   flex-direction: column;
@@ -199,7 +226,7 @@ export const ResumeRequest = styled.div`
     font-weight: bold;
     font-size: 1.375rem;
     line-height: 1.75rem;
-    color: ${(props) => props.theme.colors.title};
+    color: ${({ theme }) => theme.colors.title};
     margin-bottom: 1.375rem;
   }
 
@@ -248,16 +275,14 @@ export const ResumeRequest = styled.div`
 `;
 
 export const NotExistProductsInCart = styled.div`
-  width: 53.5625rem;
-  height: 9.3125rem;
 
   h2 {
     color: ${(props) => props.theme.colors.text};
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.75rem;  
   }
 
   a {
-    color: ${(props) => props.theme.colors.primary};
+    color: ${({ theme }) => lighten(0.2, theme.colors.primary)};
     text-decoration: underline;
   }
 `;

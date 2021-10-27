@@ -1,7 +1,7 @@
-import { Container, Loader } from "./styles";
-import addShoppingCart from "../../assets/icons/add_shopping_cart.svg";
-import { useCart } from "../../hook/cart";
-import { useState } from "react";
+import { useState } from 'react';
+import { Container, Loader } from './styles';
+import addShoppingCart from '../../assets/icons/add_shopping_cart.svg';
+import { useCart } from '../../hook/cart';
 
 interface CardGameProps {
   product: {
@@ -34,6 +34,7 @@ export function CardGame({ product }: CardGameProps) {
         <span className="price">{product.priceFormatted}</span>
       </div>
       <button
+        type="button"
         onClick={() => handleAddProduct(product.id)}
         disabled={loadAddProduct}
       >

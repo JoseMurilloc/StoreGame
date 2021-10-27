@@ -1,4 +1,4 @@
-import {createGlobalStyle, keyframes} from 'styled-components';
+import { createGlobalStyle, keyframes } from 'styled-components';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
@@ -9,7 +9,7 @@ const upConfirmAlert = keyframes`
   to {
     transform: scale(1);
   }
-`
+`;
 
 export const GlobalStyles = createGlobalStyle`
 

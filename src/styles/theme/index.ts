@@ -10,4 +10,4 @@ export const theme = {
     text: '#737373',
     subtext: '#BABABA',
   },
-}
+};

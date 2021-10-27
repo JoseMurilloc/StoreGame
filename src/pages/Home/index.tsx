@@ -1,6 +1,6 @@
-import {Container, BestGameToYou} from './styles'
-import storeGameLogo from '../../assets/storeGameLogo.svg'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { Container, BestGameToYou } from './styles';
+import storeGameLogo from '../../assets/storeGameLogo.svg';
 
 export default function Home() {
   return (
@@ -17,5 +17,5 @@ export default function Home() {
         <Link to="/games">Conheça nossos jogos</Link>
       </BestGameToYou>
     </Container>
-  ) 
+  );
 }

@@ -24,7 +24,7 @@ const GameAvailable: React.FC = () => {
 
   async function loadProducts() {
     try {
-      const response = await api("/products");
+      const response = await api('/products');
 
       const gamesFormatted = response.data.map((game: Game) => ({
         ...game,
@@ -34,7 +34,7 @@ const GameAvailable: React.FC = () => {
 
       setGames(gamesFormatted);
     } catch (err) {
-      toast.error("Problema ao carregar os produtos");
+      toast.error('Problema ao carregar os produtos');
     } finally {
       setLoadProduct(false);
     }
@@ -62,6 +62,7 @@ const GameAvailable: React.FC = () => {
             : games.map((game) => <CardGame product={game} key={game.id} />)}
         </GamesGrid>
       </div>
+
     </Container>
   );
 };

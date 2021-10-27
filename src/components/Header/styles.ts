@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import styled, { css, keyframes } from "styled-components";
+import { Link } from 'react-router-dom';
+import styled, { css, keyframes } from 'styled-components';
 
 export const Container = styled.header`
   display: flex;
@@ -16,11 +16,9 @@ export const Container = styled.header`
   }
 `;
 
-
 interface CartProps {
-  countGames: number;
+  countgames: number;
 }
-
 
 const notify = keyframes`
   from { 
@@ -36,10 +34,10 @@ export const Cart = styled(Link) <CartProps>`
   color: ${({ theme }) => theme.colors.title};
   font-size: 0.5831rem;
 
-  ${props => props.countGames > 0 && css`
+  ${(props) => props.countgames > 0 && css`
     &:after {
       animation: ${notify} .9s ease-out infinite alternate;
-      content: '${props.countGames}';
+      content: '${props.countgames}';
       display: flex;
       justify-content: center;
       align-items: center;
@@ -48,7 +46,7 @@ export const Cart = styled(Link) <CartProps>`
       right: 0;
       width: 14px;
       height: 14px;
-      background: ${props => props.theme.colors.primary};
+      background: ${({ theme }) => theme.colors.primary};
       border-radius: 7px;
     }
   `}
