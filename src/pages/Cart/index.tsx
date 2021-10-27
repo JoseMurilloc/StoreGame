@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { useMemo } from 'react';
 import { confirmAlert } from 'react-confirm-alert';
@@ -22,10 +23,11 @@ export function Cart() {
 
   const submitRemoveProductCart = (productId: number) => {
     confirmAlert({
-      title: 'Deseja remove-lo do carrinho?',
-      message: 'Confirmação de remoção de produto do carrinho',
+      title: "Deseja remove-lo do carrinho?",
+      message: "Confirmação de remoção de produto do carrinho",
       buttons: [
         {
+
           label: 'Sim',
           onClick: () => removeProduct(productId),
         },
@@ -63,6 +65,7 @@ export function Cart() {
     const totalWithShipping = cart.reduce(
       (sumTotal, product) => sumTotal += (product.price * product.amount), 0,
     );
+
 
     return formatPrice(totalWithShipping + shipping);
   }, [cart, shipping]);
@@ -102,10 +105,10 @@ export function Cart() {
                     <BodyCartGame key={product.id}>
                       <th>
                         <div className="card">
-                          <img
-                            src={product.image}
-                            alt={product.name}
-                          />
+                          <div className="container-image">
+                            <img src={product.image} alt={product.name} />
+                          </div>
+
                           <div className="infoProduct">
                             <span className="name">{product.name}</span>
                             <span className="description">
@@ -166,6 +169,7 @@ export function Cart() {
           <ResumeRequest>
             <h2>Resumo do pedido</h2>
 
+
             <span className="value-request">
               Subtotal:
               {' '}
@@ -186,6 +190,7 @@ export function Cart() {
               {' '}
               {total}
             </span>
+
 
             <button
               type="submit"

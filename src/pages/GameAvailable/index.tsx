@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
-import { CardGame } from '../../components/CardGame';
-import { CardLoadingProduct } from '../../components/CardLoadingProduct';
-import { Dropdown } from '../../components/Dropdown';
-import { Header } from '../../components/Header';
-import api from '../../services/api';
-import { formatPrice } from '../../utils/format';
-import { Container, GamesGrid } from './styles';
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { CardGame } from "../../components/CardGame";
+import { CardLoadingProduct } from "../../components/CardLoadingProduct";
+import { Dropdown } from "../../components/Dropdown";
+import { Header } from "../../components/Header";
+import api from "../../services/api";
+import { formatPrice } from "../../utils/format";
+import { Container, GamesGrid } from "./styles";
 
 export type Game = {
   id: number;
@@ -15,7 +15,7 @@ export type Game = {
   score: number;
   image: string;
   priceFormatted?: string;
-}
+};
 
 const GameAvailable: React.FC = () => {
   const [games, setGames] = useState<Game[]>([]);
@@ -54,21 +54,12 @@ const GameAvailable: React.FC = () => {
       <div className="content">
         <div className="header">
           <h1 className="title">Nossos jogos</h1>
-          <Dropdown
-            games={games}
-            setGames={setGames}
-          />
+          <Dropdown games={games} setGames={setGames} />
         </div>
         <GamesGrid>
-          {loadProduct ? (
-            lineLoad.map((item) => (
-              <CardLoadingProduct key={item} />
-            ))
-          ) : (
-            games.map((game) => (
-              <CardGame product={game} key={game.id} />
-            ))
-          )}
+          {loadProduct
+            ? lineLoad.map((item) => <CardLoadingProduct key={item} />)
+            : games.map((game) => <CardGame product={game} key={game.id} />)}
         </GamesGrid>
       </div>
 

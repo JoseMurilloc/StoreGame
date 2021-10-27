@@ -11,32 +11,37 @@ export const Container = styled.div`
   background: ${(props) => props.theme.colors.secondary};
   border-radius: 0.1875rem;
 
-  img.image-game {
+  .container-image {
     width: 100%;
     height: 7.8125rem;
-    border-radius: 0.1875rem 0.1875rem 0rem 0rem; 
   }
-  
+
+  img.image-game {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.1875rem 0.1875rem 0rem 0rem;
+  }
+
   div.content {
     display: flex;
     flex-direction: column;
     padding: 0.375rem 0.875rem 0.25rem 0.375rem;
-    width: 100%;  
-    
-    span { 
+    width: 100%;
+
+    span {
       font-size: 0.6875rem;
       line-height: 0.75rem;
     }
-    
+
     span.name {
       margin-bottom: 0.1875rem;
-      color: ${(props) => props.theme.colors.title};;
+      color: ${(props) => props.theme.colors.title};
     }
     span.price {
       color: ${(props) => props.theme.colors.price};
       font-weight: bold;
     }
-
   }
   button {
     background: ${(props) => props.theme.colors.primary};
@@ -80,13 +85,14 @@ const spinning = keyframes`
   100%{transform:rotate(180deg);}
 `;
 
-export const Loader = styled.div`  
-  height:0.9375rem;
-  width:0.9375rem;
-  background-color:transparent;
+export const Loader = styled.div`
+  height: 0.9375rem;
+  width: 0.9375rem;
+  background-color: transparent;
   border: 0.1875rem solid;
-  border-color: ${({ theme }) => theme.colors.subtext} ${({ theme }) => theme.colors.title};
-  border-radius:50%;
-  animation: .4s ${spinning} linear infinite;
+  border-color: ${({ theme }) => theme.colors.subtext}
+    ${({ theme }) => theme.colors.title};
+  border-radius: 50%;
+  animation: 0.4s ${spinning} linear infinite;
   margin-right: 0.34rem;
 `;

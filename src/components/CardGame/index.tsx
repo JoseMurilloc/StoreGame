@@ -11,7 +11,7 @@ interface CardGameProps {
     score: number;
     image: string;
     priceFormatted?: string;
-  }
+  };
 }
 
 export function CardGame({ product }: CardGameProps) {
@@ -26,7 +26,9 @@ export function CardGame({ product }: CardGameProps) {
 
   return (
     <Container>
-      <img className="image-game" src={product.image} alt="image_game" />
+      <div className="container-image">
+        <img className="image-game" src={product.image} alt="image_game" />
+      </div>
       <div className="content">
         <span className="name">{product.name}</span>
         <span className="price">{product.priceFormatted}</span>
@@ -39,7 +41,11 @@ export function CardGame({ product }: CardGameProps) {
         {loadAddProduct ? (
           <Loader />
         ) : (
-          <img className="addCart" src={addShoppingCart} alt="icon_add_to_cart" />
+          <img
+            className="addCart"
+            src={addShoppingCart}
+            alt="icon_add_to_cart"
+          />
         )}
         <span>Carrinho</span>
       </button>

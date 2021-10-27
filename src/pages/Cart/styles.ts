@@ -21,7 +21,6 @@ export const ContentCart = styled.div`
 
   animation: 0.7s ${FadeIn} ease-in;
 
-  
   h1.title {
     margin-bottom: 1.25rem;
     font-weight: bold;
@@ -54,6 +53,7 @@ export const ContentCart = styled.div`
   }
 `;
 
+
 export const CartOfGames = styled.table`
   border-collapse: separate;
   border-spacing: 3.125rem 0;
@@ -75,14 +75,21 @@ export const BodyCartGame = styled.tr`
   div {
     margin-right: 1.5625rem;
     &.card {
-      display: flex; 
+      display: flex;
+      margin-right: 6.75rem;
       margin-bottom: 1.375rem;
       text-align: left;
-      position: relative;
-      
-      > img {
-        width: 6rem;
-        height: 7.9rem; 
+
+      .container-image {
+        width: 10rem;
+        height: 7.9rem;
+      }
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+
       }
 
       div.infoProduct {
@@ -101,7 +108,7 @@ export const BodyCartGame = styled.tr`
           line-height: 1.1875rem;
           color: ${(props) => props.theme.colors.text};
         }
-        
+
         span.description {
           text-align: left;
           margin-bottom: 0.25rem;
@@ -132,7 +139,6 @@ export const BodyCartGame = styled.tr`
             background: ${(props) => shade(0.2, props.theme.colors.primary)};
           }
         }
-        
       }
     }
 
@@ -143,6 +149,7 @@ export const BodyCartGame = styled.tr`
       width: 6.1875rem;
       color: ${(props) => props.theme.colors.title};
 
+
       height: 3rem;
 
       button.button {
@@ -152,8 +159,10 @@ export const BodyCartGame = styled.tr`
 
         border: none;
 
+
         width: 1.5rem;
         height: 1.5rem;
+
         background: ${(props) => props.theme.colors.primary};
         border-radius: 0.2188rem;
         transition: background 0.2s ease-in-out;
@@ -205,15 +214,14 @@ export const ResumeRequest = styled.div`
 
   display: flex;
   flex-direction: column;
-  
+
   @media (max-width: 411px) {
     border-top: 0.0625rem solid ${({ theme }) => shade(0.6, theme.colors.text)};
     border-left: none;
     padding-top: 1rem;
-    margin: 0;    
+    margin: 0;
   }
 
-  
   h2 {
     font-weight: bold;
     font-size: 1.375rem;

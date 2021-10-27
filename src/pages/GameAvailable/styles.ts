@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from "styled-components";
 
 const FadeIn = keyframes`
   0% {
@@ -18,7 +18,6 @@ export const Container = styled.div`
     height: 100%;
   }
 
-  
   .warnPriceFree {
     width: 100vw;
     background: ${(props) => props.theme.colors.attention};
@@ -37,7 +36,7 @@ export const Container = styled.div`
     margin-top: 1.5rem;
     animation: 0.7s ${FadeIn} ease-in;
   }
- 
+
   div.header {
     display: flex;
     justify-content: space-between;
@@ -58,6 +57,7 @@ export const GamesGrid = styled.div`
   grid-template-rows: repeat(2, 1fr);
   grid-row-gap: 0.93rem;
   grid-column-gap: 1.5rem;
+
 
   @media(max-width: 1269px) {
     grid-template-columns: repeat(6, 1fr);
@@ -85,6 +85,7 @@ export const GamesGrid = styled.div`
     grid-row-gap: 0.8rem;
     grid-column-gap: 0.1rem;
   }
+
 
   @media(max-width: 434px) {
     grid-template-columns: repeat(2, 19.5rem);   
