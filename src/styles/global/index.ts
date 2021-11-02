@@ -63,11 +63,12 @@ export const GlobalStyles = createGlobalStyle`
       font-size: 75%; // 12px
     }
   }
-  @media (min-width: 1080px) {
+  @media (min-width: 1191px) {
     html {
       font-size: 93.75%; // 15px
     }
   } 
+
   @media (min-width: 1400px) {
     html {
       font-size: 100%; // 16px

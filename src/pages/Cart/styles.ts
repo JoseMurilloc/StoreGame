@@ -71,9 +71,10 @@ export const HeaderCartGame = styled.tr`
 
 export const BodyCartGame = styled.tr`
 
-  margin-right: 1rem;
 
-  div {
+div {
+    margin-right: 1rem;
+
     &.card {
       display: flex;
       margin-bottom: 1.375rem;
