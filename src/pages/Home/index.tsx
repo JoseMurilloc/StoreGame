@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Container, BestGameToYou } from './styles';
 import storeGameLogo from '../../assets/storeGameLogo.svg';
 
-export default function Home() {
+export function Home() {
   return (
     <Container>
       <img src={storeGameLogo} alt="storeGameLogo" />

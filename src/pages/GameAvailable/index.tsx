@@ -17,7 +17,7 @@ export type Game = {
   priceFormatted?: string;
 };
 
-const GameAvailable: React.FC = () => {
+export const GameAvailable: React.FC = () => {
   const [games, setGames] = useState<Game[]>([]);
   const [loadProduct, setLoadProduct] = useState(true);
   const lineLoad = [0, 1, 2, 3, 4, 5, 6, 7, 8];
@@ -66,5 +66,3 @@ const GameAvailable: React.FC = () => {
     </Container>
   );
 };
-
-export default GameAvailable;

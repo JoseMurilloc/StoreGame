@@ -1,8 +1,8 @@
 import { Switch } from 'react-router-dom';
-import { Cart } from '../pages/Cart';
-import GameAvailable from '../pages/GameAvailable';
-import Home from '../pages/Home';
 import Route from './Router';
+import { Cart } from '../pages/Cart';
+import { GameAvailable } from '../pages/GameAvailable';
+import { Home } from '../pages/Home';
 
 const Routes: React.FC = () => (
   <Switch>
