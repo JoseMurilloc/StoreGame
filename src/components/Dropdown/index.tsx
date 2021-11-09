@@ -1,21 +1,9 @@
 import {
-  useEffect, useState, Dispatch, useCallback,
+  useEffect, useState, useCallback,
 } from 'react';
 import { Container } from './styles';
 import down from '../../assets/icons/down.svg';
-import { Game } from '../../pages/GameAvailable';
-
-interface DropdownProps {
-  games: Array<Game>
-  setGames: Dispatch<React.SetStateAction<Game[]>>
-}
-
-type TypesSelectOptions = 'smallerPrices' | 'biggerPrices' | 'Alphabet' | 'bestSellers' | 'AlphabetReverse' | null
-
-type Option = {
-  label: string;
-  typeSelect: TypesSelectOptions;
-}
+import { Option, DropdownProps, Game } from './types';
 
 export function Dropdown({ games, setGames }:DropdownProps) {
   const [isActive, setIsActive] = useState(false);
@@ -91,7 +79,7 @@ export function Dropdown({ games, setGames }:DropdownProps) {
         <img src={down} alt="down" />
       </button>
       <div className="wrapperOptions">
-        {options.map((option) => (
+        {isActive && options.map((option) => (
           <button
             type="button"
             onClick={() => handleChooseOption(option)}

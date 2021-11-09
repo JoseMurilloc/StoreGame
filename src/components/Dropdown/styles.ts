@@ -48,11 +48,6 @@ export const Container = styled.div<ContainerProps>`
   }
   
   .dropdown-option {
-
-    ${(props) => (props.isActive ? css`` : css`
-      visibility: hidden;
-    `)}
-
     cursor: pointer;
     display: flex;
     justify-content: center;
