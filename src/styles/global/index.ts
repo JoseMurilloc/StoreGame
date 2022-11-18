@@ -52,34 +52,6 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
   }
-
-  @media (max-width: 750px) {
-    html {
-      font-size: 70.5%; // 11.28px
-    }
-  }
-  @media (min-width: 751px) {
-    html {
-      font-size: 75%; // 12px
-    }
-  }
-  @media (min-width: 1191px) {
-    html {
-      font-size: 93.75%; // 15px
-    }
-  } 
-
-  @media (min-width: 1400px) {
-    html {
-      font-size: 100%; // 16px
-    }
-  }
-
-  @media (min-width: 1800px) {
-    html {
-      font-size: 120%; // 16px
-    }
-  }
   
   *, html {
     box-sizing: border-box;
