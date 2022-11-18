@@ -42,7 +42,7 @@ export const ContentCart = styled.div`
 
     .wrapperScroll {
       width: auto;
-      height: 31rem;
+      height: calc(100vh - 12rem);
       overflow-x: hidden;
       overflow-y: auto;
 
